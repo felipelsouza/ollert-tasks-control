@@ -6,9 +6,19 @@ const signOptions = {
     expiresIn: '1d'
 }
 
-const sign = (payload) => {
+const sign = payload => {
     const token = jwt.sign(payload, process.env.JWT_PRIVATE_KEY, signOptions);
     return token;
 }
 
-module.exports = { sign };
+const verify = token => {
+    const authorization = jwt.verify(token, process.env.JWT_PUBLIC_KEY, { algorithms: ['RS256'] }, (err, decoded) => {
+        if (err) return false;
+
+        return decoded;
+    });
+
+    return authorization;
+}
+
+module.exports = { sign, verify };

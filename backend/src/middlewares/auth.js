@@ -1,4 +1,4 @@
-const jwt = require('jsonwebtoken');
+const { verify } = require('../services/token');
 require('dotenv').config();
 
 module.exports = (req, res, next) => {
@@ -19,11 +19,13 @@ module.exports = (req, res, next) => {
         return res.status(401).json({ message: 'Ops.. formatação incorreta do token' });
     }
 
-    jwt.verify(token, process.env.JWT_PUBLIC_KEY, { algorithms: ['RS256'] }, (err, decoded) => {
-        if (err) return res.status(401).json({ message: 'Ops.. token de autenticação inválido' });
+    const authorization = verify(token);
 
-        req.userId = decoded.id;
+    if (!authorization) {
+        return res.status(401).json({ message: 'Ops.. token de autenticação inválido' });
+    }
 
-        return next();
-    });
-}
+    req.user_id = authorization.id;
+
+    return next();
+};
