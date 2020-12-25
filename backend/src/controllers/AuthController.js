@@ -30,7 +30,7 @@ const register = async (req, res) => {
 
         return res.status(201).json({ message: 'Boa! Usuário registrado com sucesso!', user, token: generatedToken });
     } catch (err) {
-        res.status(500).json({ message: 'Erro no registro de usuário', err })
+        res.status(400).json({ message: 'Erro no registro de usuário', err })
     }
 };
 
@@ -38,7 +38,7 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     const user = await User.findOne({ where: { email } })
-        .catch(err => res.status(500).json({ err }));
+        .catch(err => res.status(500).json(err));
 
     if (!user) {
         return res.status(401).json({ message: 'Ops.. parece que seu email não está cadastrado' });
@@ -54,8 +54,4 @@ const login = async (req, res) => {
     return res.status(200).json({ message: 'Autenticação efetuada!', token: generatedToken });
 };
 
-const logout = async (req, res) => {
-    return res.status(200).json({ message: 'Usuário deslogado!', user: req.user_id });
-};
-
-module.exports = { register, login, logout };
+module.exports = { register, login };
