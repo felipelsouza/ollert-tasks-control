@@ -17,6 +17,10 @@ class Project extends Model {
             foreignKey: 'user_id',
             as: 'users'
         });
+        this.hasMany(models.Task, {
+            foreignKey: 'project_id',
+            as: 'tasks'
+        });
     };
 };
 

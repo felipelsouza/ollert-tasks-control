@@ -12,6 +12,10 @@ const store = async (req, res) => {
             return res.status(400).json({ message: 'Usuário inexistente' });
         }
 
+        if (!title) {
+            return res.status(400).json({ message: 'O projeto deve conter um título' });
+        }
+
         const project = await Project.create({ user_id, title, description });
 
         return res.status(201).json(project);
@@ -87,7 +91,7 @@ const destroy = async (req, res) => {
 
         return res.status(200).json({ message: 'Projeto deletado' });
     } catch (err) {
-        return res.status(400).json({ message: 'Erro ao projeto', err });
+        return res.status(400).json({ message: 'Erro ao deletar projeto', err });
     }
 };
 

@@ -3,6 +3,7 @@ const express = require('express');
 const authController = require('./controllers/AuthController');
 const userController = require('./controllers/UserController');
 const projectController = require('./controllers/ProjectController');
+const taskController = require('./controllers/TaskController');
 
 const authMiddleware = require('./middlewares/auth');
 
@@ -23,5 +24,12 @@ routes.get('/users/:user_id/projects', authMiddleware, projectController.indexAl
 routes.get('/users/:user_id/projects/:project_id', authMiddleware, projectController.indexOne);
 routes.put('/users/:user_id/projects/:project_id', authMiddleware, projectController.update);
 routes.delete('/users/:user_id/projects/:project_id', authMiddleware, projectController.destroy);
+
+//TAREFAS
+routes.post('/users/:user_id/projects/:project_id/tasks', authMiddleware, taskController.store);
+routes.get('/users/:user_id/projects/:project_id/tasks', authMiddleware, taskController.indexAll);
+routes.get('/users/:user_id/projects/:project_id/tasks/:task_id', authMiddleware, taskController.indexOne);
+routes.put('/users/:user_id/projects/:project_id/tasks/:task_id', authMiddleware, taskController.update);
+routes.delete('/users/:user_id/projects/:project_id/tasks/:task_id', authMiddleware, taskController.destroy);
 
 module.exports = routes;
