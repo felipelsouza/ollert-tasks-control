@@ -4,10 +4,6 @@ import Routes from './routes';
 
 import './styles/global.css';
 
-function App() {
-  return (
-    <Routes />
-  );
-}
+const App = () => <Routes />
 
 export default App;
