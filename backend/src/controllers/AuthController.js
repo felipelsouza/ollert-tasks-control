@@ -14,6 +14,10 @@ const register = async (req, res) => {
             return res.status(400).json({ message: 'Ei.. sua senha deve ter 8 ou mais caracteres!' })
         }
 
+        if (!/\S+@\S+\.\S+/.test(email)) {
+            return res.status(400).json({ message: 'Ei.. insira um e-mail válido!' });
+        }
+
         const hasEmail = await User.findOne({ where: { email: email.toLowerCase() } })
 
         if (hasEmail) {
