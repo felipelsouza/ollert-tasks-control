@@ -25,6 +25,10 @@ module.exports = (req, res, next) => {
         return res.status(401).json({ message: 'Ops.. token de autenticação inválido' });
     }
 
+    if (req.params.user_id != authorization.id) {
+        return res.status(401).json({ message: 'Ei.. esse token não é seu!!!' });
+    }
+
     req.user_id = authorization.id;
 
     return next();
