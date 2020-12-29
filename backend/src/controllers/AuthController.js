@@ -55,7 +55,7 @@ const login = async (req, res) => {
 
     const generatedToken = token.sign({ id: user.id });
 
-    return res.status(200).json({ message: 'Autenticação efetuada!', token: generatedToken });
+    return res.status(200).json({ message: 'Autenticação efetuada!', userId: user.id, token: generatedToken });
 };
 
 module.exports = { register, login };
