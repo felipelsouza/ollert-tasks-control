@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  height: 100vh;
+  background: url("../../images/404.svg") no-repeat center -5px;
+  background-size: 40%;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4rem;
+  background-color: #04d361;
+  width: 14rem;
+  height: 3.4rem;
+  border-radius: 0.4rem;
+  font-weight: 500;
+  font-size: 1.6rem;
+  transition: 0.2s;
+}
+
+.button:hover {
+  background-color: #04bf58;
+}
+
+.link {
+  color: #3a3a3a;
+  font-style: italic;
+  font-size: 1rem;
+}
