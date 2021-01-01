@@ -27,11 +27,11 @@ const Routes = () => (
         <Switch>
             <Route path="/" exact component={isAuthenticated() ? ProjectsList : Home} />
             <Route path="/singup" component={isAuthenticated() ? ProjectsList : Register} />
-            <PrivateRoute path="*" component={NotFound} />
             <PrivateRoute path="/app" component={ProjectsList} />
             <PrivateRoute path="/profile" component={Profile} />
             <PrivateRoute path="/new-project" component={CreateProject} />
             <PrivateRoute path="/project/:id" component={Project} />
+            <PrivateRoute path="*" component={NotFound} />
         </Switch>
     </BrowserRouter>
 );

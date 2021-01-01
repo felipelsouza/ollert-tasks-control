@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import { getUserId } from '../services/auth';
 import api from '../services/api';
@@ -10,7 +10,7 @@ import { MdAdd } from 'react-icons/md';
 import projectImg from '../images/project.svg'
 
 import '../styles/components/pages.css';
-import '../styles/pages/projects.css';
+import '../styles/pages/projects-list.css';
 
 function ProjectsList() {
     const [name, setName] = useState('');
@@ -19,7 +19,7 @@ function ProjectsList() {
     useEffect(() => {
         const userId = getUserId();
 
-        const project = api.get(`users/${userId}/projects`)
+        api.get(`users/${userId}/projects`)
             .then(res => {
                 setName(res.data.name);
                 setProjects(res.data.projects);

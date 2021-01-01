@@ -55,6 +55,22 @@ label {
   border: 1.8px solid #0079bf;
 }
 
+.field textarea {
+  height: 14rem;
+  width: 40rem;
+  border: 1px solid #29b6d1;
+  border-radius: 0.4rem;
+  transition: 0.1s;
+  padding: 0 0.6rem;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #3a3a3a;
+}
+
+.field textarea:focus {
+  border: 1.8px solid #0079bf;
+}
+
 .submit-button {
   background-color: #04d361;
   width: 20rem;

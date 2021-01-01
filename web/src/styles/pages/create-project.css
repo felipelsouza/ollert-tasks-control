@@ -1,0 +1,16 @@
+.project-form {
+  padding: 1rem;
+}
+
+.create {
+  width: 10rem;
+}
+
+.title-field {
+  width: 40rem;
+}
+
+.alert-container {
+  width: 100%;
+  padding: 0 0 1rem 0;
+}
