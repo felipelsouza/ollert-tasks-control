@@ -1,0 +1,47 @@
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  width: 100%;
+  padding: 0 2rem;
+  background: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  width: 44rem;
+}
+
+.logo {
+  width: 8rem;
+}
+
+.options {
+  display: flex;
+  align-items: center;
+}
+
+.options-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 1rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.options-button:hover {
+  background-color: #0079bf;
+}

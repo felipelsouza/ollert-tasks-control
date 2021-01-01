@@ -1,0 +1,99 @@
+.panel {
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 1.4rem;
+  width: 100%;
+  height: 48rem;
+  overflow: hidden;
+}
+
+h1,
+h3,
+span {
+  color: #0079bf;
+}
+
+h1 {
+  font-size: 1.8rem;
+  padding-bottom: 1.4rem;
+}
+
+.projects-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.projects-container::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+.projects-container::-webkit-scrollbar-thumb {
+  background: rgba(0, 121, 191, 0.2);
+  border-radius: 0.6rem;
+  transition: 0.2s;
+}
+
+.projects-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 121, 191, 0.3);
+  width: 0.6rem;
+}
+
+.projects-container::-webkit-scrollbar-button {
+  display: none;
+}
+
+.project-preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 8rem;
+  width: 8rem;
+  margin: 1rem;
+  cursor: pointer;
+}
+
+.new-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-project,
+.project-image {
+  width: 6rem;
+  height: 6rem;
+  border: 0.1rem solid rgba(0, 121, 191, 0.4);
+  border-radius: 0.3rem;
+  transition: 0.2s;
+}
+
+.project-image:hover,
+.new-project:hover {
+  border-color: rgba(0, 121, 191, 0.9);
+  background: rgba(4, 211, 97, 0.1);
+}
+
+.project-name {
+  font-weight: 400;
+  font-size: 1rem;
+  max-width: 14ch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link {
+  color: #3a3a3a;
+  font-style: italic;
+  font-size: 0.8rem !important;
+}

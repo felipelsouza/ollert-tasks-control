@@ -5,8 +5,11 @@ import { isAuthenticated } from './services/auth';
 
 import Home from './pages/Home';
 import Register from './pages/Register';
-import Projects from './pages/Projects';
+import ProjectsList from './pages/ProjectsList';
 import NotFound from './pages/NotFound';
+import CreateProject from './pages/CreateProject';
+import Project from './pages/Project';
+import Profile from './pages/Profile';
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route
@@ -22,10 +25,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
     <BrowserRouter>
         <Switch>
-            <Route path="/" exact component={isAuthenticated() ? Projects : Home} />
-            <Route path="/singup" component={isAuthenticated() ? Projects : Register} />
-            <PrivateRoute path="/app" component={Projects} />
-            <Route path="*" component={NotFound} />
+            <Route path="/" exact component={isAuthenticated() ? ProjectsList : Home} />
+            <Route path="/singup" component={isAuthenticated() ? ProjectsList : Register} />
+            <PrivateRoute path="*" component={NotFound} />
+            <PrivateRoute path="/app" component={ProjectsList} />
+            <PrivateRoute path="/profile" component={Profile} />
+            <PrivateRoute path="/new-project" component={CreateProject} />
+            <PrivateRoute path="/project/:id" component={Project} />
         </Switch>
     </BrowserRouter>
 );

@@ -1,0 +1,16 @@
+.page-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 4.8rem;
+  width: 100vw;
+  height: calc(100vh - 4.8rem);
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  width: 44rem;
+  height: 100%;
+}
