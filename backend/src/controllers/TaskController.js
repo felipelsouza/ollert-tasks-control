@@ -45,22 +45,22 @@ const indexAll = async (req, res) => {
     const { user_id, project_id } = req.params;
 
     try {
-        const tasks = await Project.findByPk(project_id, {
+        const task = await Task.findAll({
             include: [
                 {
+                    association: 'project',
+                    where: { id: project_id },
                     attributes: [],
-                    association: 'users',
-                    where: { id: user_id }
-                },
-                {
-                    association: 'tasks',
-                    attributes: ['id', 'title', 'description', 'created_at', 'updated_at'],
-                    include: { association: 'status' }
+                    include: {
+                        association: 'users',
+                        where: { id: user_id },
+                        attributes: []
+                    }
                 }
-            ],
-        });
+            ]
+        })
 
-        return res.status(200).json(tasks);
+        return res.status(200).json(task);
     } catch (err) {
         return res.status(400).json({ message: 'Erro na listagem de tarefas', err });
     }
@@ -70,21 +70,20 @@ const indexOne = async (req, res) => {
     const { user_id, project_id, task_id } = req.params;
 
     try {
-        const task = await Project.findByPk(project_id, {
+        const task = await Task.findByPk(task_id, {
             include: [
                 {
+                    association: 'project',
+                    where: { id: project_id },
                     attributes: [],
-                    association: 'users',
-                    where: { id: user_id }
-                },
-                {
-                    association: 'tasks',
-                    attributes: ['id', 'title', 'description', 'created_at', 'updated_at'],
-                    where: { id: task_id },
-                    include: { association: 'status' }
+                    include: {
+                        association: 'users',
+                        where: { id: user_id },
+                        attributes: []
+                    }
                 }
-            ],
-        });
+            ]
+        })
 
         return res.status(200).json(task);
     } catch (err) {
