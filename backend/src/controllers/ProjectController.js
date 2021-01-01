@@ -16,7 +16,10 @@ const store = async (req, res) => {
             return res.status(400).json({ message: 'O projeto deve conter um título' });
         }
 
-        const projectName = await Project.findOne({ where: { title } });
+        const projectName = await User.findByPk(user_id, {
+            attributes: [],
+            include: { association: 'projects', where: { title } }
+        });
 
         if (projectName) {
             return res.status(401).json({ message: 'Ops.. Já existe um projeto com este nome!' });
