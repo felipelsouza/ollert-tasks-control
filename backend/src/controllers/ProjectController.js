@@ -52,12 +52,15 @@ const indexOne = async (req, res) => {
     const { user_id, project_id } = req.params;
 
     try {
-        const user = await User.findByPk(user_id, {
-            attributes: ['id', 'name', 'email', 'created_at', 'updated_at'],
-            include: { association: 'projects', where: { id: project_id } }
+        const project = await Project.findByPk(project_id, {
+            include: {
+                association: 'users',
+                where: { id: user_id },
+                attributes: []
+            }
         });
 
-        return res.status(200).json(user);
+        return res.status(200).json(project);
     } catch (err) {
         return res.status(400).json({ message: 'Erro na listagem de projetos', err });
     }
