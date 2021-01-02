@@ -1,0 +1,134 @@
+.project {
+  display: flex;
+  justify-content: center;
+  margin-top: 4.4rem;
+  width: 100vw;
+  height: calc(100vh - 4.8rem);
+}
+
+.project-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.project-description {
+  font-size: 0.8rem;
+  font-style: italic;
+  font-weight: 400;
+  text-align: center;
+  max-width: 60%;
+  color: #3a3a3a;
+  margin-bottom: 1rem;
+}
+
+.title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.project-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-right: 0.6rem;
+}
+
+.tasks-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+}
+
+.tasks-section {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  width: calc(100% / 3);
+  margin: 0 1rem;
+  height: calc(100vh - 10.6rem);
+  background-color: #f5f5f5;
+  border-radius: 1.4rem;
+  padding: 0 0.8rem;
+  overflow-y: scroll;
+}
+
+.tasks-section::-webkit-scrollbar {
+  display: none;
+}
+
+.task-status {
+  position: sticky;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.8rem 0;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.status-title {
+  margin-right: 0.6rem;
+}
+
+.task-card {
+  background-color: #fdfdfd;
+  box-shadow: -1px 1px 8px -2px rgba(58, 58, 58, 0.4);
+  flex-wrap: wrap;
+  padding: 0.4rem;
+  width: 96%;
+  margin-bottom: 0.6rem;
+}
+
+.task-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.task-title {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4rem;
+  max-width: 70%;
+}
+
+.task-options {
+  display: flex;
+  justify-content: space-evenly;
+  width: 30%;
+}
+
+.task-description {
+  color: #3a3a3a;
+  font-size: 0.8rem;
+  font-weight: 300;
+}
+
+.edit-project-button,
+.add-task-button,
+.task-option-button {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.edit-project-button:hover,
+.add-task-button:hover,
+.task-option-button:hover {
+  background-color: rgba(58, 58, 58, 0.1);
+}

@@ -27,7 +27,7 @@ function CreateProject() {
             .then(project => {
                 setError('');
                 setSuccess(project.data.message);
-                history.push(`projects/${project.data.id}`);
+                history.push(`project/${project.data.id}`);
             })
             .catch(err => {
                 setSuccess('');

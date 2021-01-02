@@ -14,3 +14,23 @@
   width: 100%;
   padding: 0 0 1rem 0;
 }
+
+@media (max-width: 900px) {
+  label {
+    color: #0079bf;
+  }
+
+  .field {
+    width: 18rem;
+    margin-bottom: 1rem;
+  }
+
+  .alert-container {
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 0 1rem 0;
+  }
+}

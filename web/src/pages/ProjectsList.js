@@ -43,7 +43,7 @@ function ProjectsList() {
                         </div>
 
                         {projects.map(project => (
-                            <Link to={`projects/${project.id}`} className="project-preview" key={project.id}>
+                            <Link to={`project/${project.id}`} className="project-preview" key={project.id}>
                                 <img src={projectImg} alt="organizing project" className="project-image" />
                                 <span className="project-name">{project.title}</span>
                             </Link>
