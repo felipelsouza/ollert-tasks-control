@@ -132,15 +132,14 @@
   background-color: rgba(58, 58, 58, 0.1);
 }
 
-.add-task-button {
+.add-task-button,
+.delete-project-button {
   position: fixed;
   top: 0;
-  left: 0;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #02507e;
   margin: 4.8rem 4rem;
   padding-left: 0.8rem;
   border-radius: 4rem;
@@ -151,16 +150,38 @@
   transition: 0.2s;
 }
 
+.add-task-button {
+  left: 0;
+  background-color: #02507e;
+}
+
+.delete-project-button {
+  right: 0;
+  background-color: #d91e18;
+}
+
 .add-task-button:hover {
   background-color: #1392db;
 }
 
-.icon {
+.delete-project-button:hover {
+  background-color: #ec644b;
+}
+
+.add-icon,
+.delete-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #1392db;
   width: 2.4rem;
   height: 2.4rem;
   border-radius: 50%;
+}
+
+.add-icon {
+  background-color: #1392db;
+}
+
+.delete-icon {
+  background-color: #ec644b;
 }

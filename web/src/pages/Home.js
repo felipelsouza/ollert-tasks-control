@@ -5,7 +5,6 @@ import Alert from '@material-ui/lab/Alert';
 import SideBar from '../components/SideBar';
 
 import api from '../services/api';
-import { login } from '../services/auth';
 
 import '../styles/pages/home.css';
 import '../styles/components/form.css';

@@ -13,6 +13,11 @@
   padding: 1.4rem;
 }
 
+.delete-dialog {
+  width: 30rem;
+  height: 12rem;
+}
+
 .modal-input {
   width: 20rem !important;
 }
@@ -22,6 +27,11 @@
   align-items: center;
   justify-content: space-evenly;
   width: 60%;
+}
+
+.delete-project-buttons {
+  margin-top: 2rem;
+  width: 80%;
 }
 
 .modal-button {

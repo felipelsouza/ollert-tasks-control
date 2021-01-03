@@ -102,7 +102,7 @@ function Dialog({ isVisible, closeModal, project, setProject, userId, projectId,
                 });
 
         }
-    }
+    };
 
     function setModalTitle() {
         if (project) {

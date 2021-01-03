@@ -6,6 +6,7 @@ import { getUserId } from '../services/auth';
 
 import Header from '../components/Header';
 import Modal from '../components/Modal';
+import DeleteProjectModal from '../components/DeleteProjectModal';
 
 import { MdAdd, MdEdit, MdDelete, MdNavigateNext, MdNavigateBefore } from 'react-icons/md';
 
@@ -24,6 +25,7 @@ function Project() {
     const [showProjectDialog, setShowProjectDialog] = useState(false);
     const [showNewTaskDialog, setShowNewTaskDialog] = useState(false);
     const [showEditTaskDialog, setShowEditTaskDialog] = useState(false);
+    const [showDeleteProjectDialog, setShowDeleteProjectDialog] = useState(false);
     const [taskToEdit, setTaskToEdit] = useState(null);
 
     useEffect(async () => {
@@ -72,6 +74,7 @@ function Project() {
         setShowProjectDialog(false);
         setShowNewTaskDialog(false);
         setShowEditTaskDialog(false);
+        setShowDeleteProjectDialog(false);
     };
 
     async function handleChangeStatus(task, direction) {
@@ -114,7 +117,6 @@ function Project() {
             .catch(err => console.log(err));
     };
 
-
     return (
         <div className="project">
             <Header />
@@ -141,6 +143,13 @@ function Project() {
                     userId={userId}
                 />
 
+                <DeleteProjectModal
+                    isVisible={showDeleteProjectDialog}
+                    closeModal={closeModal}
+                    project={project}
+                    userId={userId}
+                />
+
                 <div className="title-container">
                     <span className="project-title">
                         {project.title}
@@ -155,8 +164,15 @@ function Project() {
 
                 <button onClick={() => openModal(2)} className="add-task-button">
                     Nova Tarefa &nbsp;
-                    <div className="icon">
+                    <div className="add-icon">
                         <MdAdd size={32} color="#FFFFFF" />
+                    </div>
+                </button>
+
+                <button onClick={() => setShowDeleteProjectDialog(true)} className="delete-project-button">
+                    Deletar Projeto &nbsp;
+                    <div className="delete-icon">
+                        <MdDelete size={32} color="#FFFFFF" />
                     </div>
                 </button>
 
