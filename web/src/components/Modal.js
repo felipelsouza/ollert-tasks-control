@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Modal from '@material-ui/core/Modal';
+import Alert from '@material-ui/lab/Alert';
 
 import api from '../services/api';
 
@@ -20,6 +21,8 @@ function Dialog({ isVisible, closeModal, project, setProject, userId, projectId,
         name: 'Finalizada'
     }]);
     const [newStatus, setNewStatus] = useState(1);
+    const [success, setSuccess] = useState('');
+    const [error, setError] = useState('');
 
     useEffect(() => {
         if (project) {
@@ -31,6 +34,12 @@ function Dialog({ isVisible, closeModal, project, setProject, userId, projectId,
             setNewTitle(task.title);
             setNewDescription(task.description);
         }
+        if (newTask) {
+            setNewTitle('');
+            setNewDescription('');
+        }
+        setSuccess('');
+        setError('');
     }, [isVisible]);
 
     async function handleSubmitForm(event) {
@@ -41,9 +50,16 @@ function Dialog({ isVisible, closeModal, project, setProject, userId, projectId,
                 title: newTitle,
                 description: newDescription
             })
-                .catch(err => console.log(err));
-
-            setProject({ title: newTitle, description: newDescription });
+                .then(res => {
+                    setError('');
+                    setSuccess(res.data.message);
+                    setProject({ title: newTitle, description: newDescription });
+                    closeModal();
+                })
+                .catch(err => {
+                    setSuccess('');
+                    setError(err.response.data.message);
+                });
         }
 
         if (task) {
@@ -51,9 +67,17 @@ function Dialog({ isVisible, closeModal, project, setProject, userId, projectId,
                 title: newTitle,
                 description: newDescription
             })
-                .catch(err => console.log(err));
+                .then(res => {
+                    setError('');
+                    setSuccess(res.data.message);
+                    setTask({ status: newStatus, title: newTitle, description: newDescription });
+                    closeModal();
+                })
+                .catch(err => {
+                    setSuccess('');
+                    setError(err.response.data.message);
+                });
 
-            setTask({ status: newStatus, title: newTitle, description: newDescription });
         }
 
         if (newTask) {
@@ -62,16 +86,22 @@ function Dialog({ isVisible, closeModal, project, setProject, userId, projectId,
                 title: newTitle,
                 description: newDescription
             })
-                .catch(err => console.log(err.response.data));
+                .then(res => {
+                    setError('');
+                    setSuccess(res.data.message);
+                    setTask({
+                        status: newStatus,
+                        title: newTitle,
+                        description: newDescription
+                    });
+                    closeModal();
+                })
+                .catch(err => {
+                    setSuccess('');
+                    setError(err.response.data.message);
+                });
 
-            setTask({
-                status: newStatus,
-                title: newTitle,
-                description: newDescription
-            });
         }
-
-        closeModal();
     }
 
     function setModalTitle() {
@@ -104,7 +134,24 @@ function Dialog({ isVisible, closeModal, project, setProject, userId, projectId,
                 </div>
             );
         }
-    }
+    };
+
+    function renderAlert() {
+        if (error) {
+            return (
+                <Alert variant="filled" severity="error">
+                    {error}
+                </Alert>
+            );
+        }
+        if (success) {
+            return (
+                <Alert variant="filled" severity="success">
+                    {success}
+                </Alert>
+            );
+        }
+    };
 
     return (
         <Modal
@@ -145,6 +192,9 @@ function Dialog({ isVisible, closeModal, project, setProject, userId, projectId,
                         <button type="submit" className="submit-button modal-button">Salvar</button>
                     </div>
                 </form>
+                <div className="alert-container">
+                    {renderAlert()}
+                </div>
             </div>
         </Modal>
     );

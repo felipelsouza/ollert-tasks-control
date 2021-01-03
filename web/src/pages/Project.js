@@ -24,7 +24,7 @@ function Project() {
     const [showProjectDialog, setShowProjectDialog] = useState(false);
     const [showNewTaskDialog, setShowNewTaskDialog] = useState(false);
     const [showEditTaskDialog, setShowEditTaskDialog] = useState(false);
-    const [taskToEdit, setTaskToEdit] = useState([]);
+    const [taskToEdit, setTaskToEdit] = useState(null);
 
     useEffect(async () => {
         await api.get(`/users/${userId}/projects/${params.id}`)

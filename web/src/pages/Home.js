@@ -23,7 +23,6 @@ function Home() {
 
         await api.post('/auth/login', { email, password })
             .then(user => {
-                login(user.data.token, user.data.userId);
                 setError('');
                 setSuccess(user.data.message);
                 history.push('/app');
