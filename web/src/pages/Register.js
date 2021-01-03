@@ -63,6 +63,7 @@ function Register() {
                             type="text"
                             id="name"
                             value={name}
+                            maxLength="40"
                             onChange={event => setName(event.target.value)}
                         />
                     </div>
@@ -73,6 +74,7 @@ function Register() {
                             type="text"
                             id="email"
                             autoCorrect="off"
+                            maxLength="40"
                             value={email}
                             onChange={event => setEmail(event.target.value)}
                         />

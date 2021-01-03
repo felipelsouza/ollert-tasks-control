@@ -1,0 +1,15 @@
+.profile-form {
+  padding: 1rem;
+}
+
+.date-container {
+  margin-top: 2rem;
+}
+
+.date-span {
+  margin-right: 1rem;
+  color: #3a3a3a;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+}
