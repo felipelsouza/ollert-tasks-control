@@ -1,0 +1,45 @@
+.modal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog {
+  background-color: #e5e5e5;
+  width: 40rem;
+  height: 34rem;
+  border-radius: 1.2rem;
+  outline: none;
+  padding: 1.4rem;
+}
+
+.modal-input {
+  width: 20rem !important;
+}
+
+.buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 60%;
+}
+
+.modal-button {
+  width: 8rem;
+}
+
+.cancel-button {
+  background-color: #d91e18;
+}
+
+.cancel-button:hover {
+  background-color: #ac2823;
+}
+
+.select {
+  height: 2rem;
+  color: #3a3a3a;
+  padding: 0 0.4rem;
+  border: 1px solid #29b6d1;
+  border-radius: 0.4rem;
+}

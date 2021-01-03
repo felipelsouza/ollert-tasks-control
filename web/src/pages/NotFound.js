@@ -9,7 +9,7 @@ function NotFound() {
             <Link to="/" className="button">
                 Página inicial
             </Link>
-            <a href="https://storyset.com/web" target="_blank" className="link">Illustration by Freepik Storyset</a>
+            <a href="https://storyset.com/web" target="_blank" rel="noreferrer" className="link">Illustration by Freepik Storyset</a>
         </div>
     );
 }

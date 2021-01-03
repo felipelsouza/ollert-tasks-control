@@ -13,7 +13,8 @@ a,
 body,
 input,
 button,
-textarea {
+textarea,
+select {
   font: 600 18px Poppins, sans-serif;
   color: #ffffff;
   border: 0;

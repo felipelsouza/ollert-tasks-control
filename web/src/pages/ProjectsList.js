@@ -52,7 +52,7 @@ function ProjectsList() {
                     </div>
                 </div>
                 <footer>
-                    <a href="https://storyset.com/work" className="link" target="_blank">Illustration by Freepik Storyset</a>
+                    <a href="https://storyset.com/work" className="link" target="_blank" rel="noreferrer">Illustration by Freepik Storyset</a>
                 </footer>
             </div>
         </div >
