@@ -7,18 +7,22 @@ const register = async (req, res) => {
 
     try {
         if (!name || !email || !password) {
-            return res.status(400).json({ message: 'Ei.. preencha todos os campos!' })
+            return res.status(400).json({ message: 'Ei.. preencha todos os campos!' });
+        }
+
+        if (name.trim().length === 0 || email.trim().length === 0) {
+            return res.status(400).json({ message: 'Ei.. preencha todos os campos!' });
         }
 
         if (password.length < 8) {
-            return res.status(400).json({ message: 'Ei.. sua senha deve ter 8 ou mais caracteres!' })
+            return res.status(400).json({ message: 'Ei.. sua senha deve ter 8 ou mais caracteres!' });
         }
 
         if (!/\S+@\S+\.\S+/.test(email)) {
             return res.status(400).json({ message: 'Ei.. insira um e-mail válido!' });
         }
 
-        const hasEmail = await User.findOne({ where: { email: email.toLowerCase() } })
+        const hasEmail = await User.findOne({ where: { email: email.toLowerCase() } });
 
         if (hasEmail) {
             return res.status(401).json({ message: 'Ops.. Este e-mail já está cadastrado!' });
@@ -26,7 +30,7 @@ const register = async (req, res) => {
 
         const encryptedPassword = bcrypt.hashSync(password, bcrypt.genSaltSync(10), null);
 
-        const user = await User.create({ name: name, email: email.toLowerCase(), password: encryptedPassword })
+        const user = await User.create({ name: name, email: email.toLowerCase(), password: encryptedPassword });
 
         user.password = undefined;
 
@@ -34,7 +38,7 @@ const register = async (req, res) => {
 
         return res.status(201).json({ message: 'Boa! Usuário registrado com sucesso!', user, token: generatedToken });
     } catch (err) {
-        res.status(400).json({ message: 'Erro no registro de usuário', err })
+        res.status(400).json({ message: 'Erro no registro de usuário', err });
     }
 };
 

@@ -24,7 +24,7 @@ const store = async (req, res) => {
             return res.status(400).json({ message: 'Status inexistente' });
         }
 
-        if (!title || !description) {
+        if (!title || !description || title.trim().length === 0 || description.trim().length === 0) {
             return res.status(400).json({ message: 'É necessário preencher todos os campos!' });
         }
 
@@ -96,6 +96,10 @@ const update = async (req, res) => {
     const { title, description, status } = req.body;
 
     try {
+        if (!title || !description || title.trim().length === 0 || description.trim().length === 0) {
+            return res.status(400).json({ message: 'É necessário preencher todos os campos' });
+        }
+
         const task = await Task.findByPk(task_id, {
             include: [
                 {

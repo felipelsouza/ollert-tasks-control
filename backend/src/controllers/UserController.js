@@ -19,6 +19,10 @@ const update = async (req, res) => {
     const { name } = req.body;
 
     try {
+        if (!name || name.trim().length === 0) {
+            return res.status(400).json({ message: 'Ei.. você deve preencher seu novo nome!' });
+        }
+
         const user = await User.findByPk(user_id, {
             attributes: ['id', 'name', 'email', 'created_at', 'updated_at']
         })

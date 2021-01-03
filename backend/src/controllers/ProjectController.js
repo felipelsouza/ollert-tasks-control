@@ -12,7 +12,7 @@ const store = async (req, res) => {
             return res.status(400).json({ message: 'Usuário inexistente' });
         }
 
-        if (!title) {
+        if (!title || title.trim().length === 0) {
             return res.status(400).json({ message: 'O projeto deve conter um título' });
         }
 
@@ -71,6 +71,10 @@ const update = async (req, res) => {
     const { title, description, editable } = req.body;
 
     try {
+        if (!title || title.trim().length === 0) {
+            return res.status(400).json({ message: 'O projeto deve conter um título' });
+        }
+
         const project = await Project.findByPk(project_id, {
             include: {
                 association: 'users',
