@@ -31,7 +31,7 @@ const Routes = () => (
             <PrivateRoute path="/profile" component={Profile} />
             <PrivateRoute path="/new-project" component={CreateProject} />
             <PrivateRoute path="/project/:id" component={Project} />
-            <PrivateRoute path="*" component={NotFound} />
+            <Route path="*" component={NotFound} />
         </Switch>
     </BrowserRouter>
 );

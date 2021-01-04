@@ -5,6 +5,7 @@ import Alert from '@material-ui/lab/Alert';
 import SideBar from '../components/SideBar';
 
 import api from '../services/api';
+import { login } from '../services/auth';
 
 import '../styles/pages/home.css';
 import '../styles/components/form.css';
@@ -22,6 +23,7 @@ function Home() {
 
         await api.post('/auth/login', { email, password })
             .then(user => {
+                login(user.data.token, user.data.userId);
                 setError('');
                 setSuccess(user.data.message);
                 history.push('/app');

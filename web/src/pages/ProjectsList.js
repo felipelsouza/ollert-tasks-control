@@ -16,10 +16,10 @@ function ProjectsList() {
     const [name, setName] = useState('');
     const [projects, setProjects] = useState([]);
 
-    useEffect(() => {
+    useEffect(async () => {
         const userId = getUserId();
 
-        api.get(`users/${userId}/projects`)
+        await api.get(`users/${userId}/projects`)
             .then(res => {
                 setName(res.data.name);
                 setProjects(res.data.projects);
