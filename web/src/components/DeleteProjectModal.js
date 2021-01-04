@@ -21,7 +21,7 @@ function Dialog({ isVisible, closeModal, project, userId }) {
             .then(res => {
                 setError('');
                 setSuccess(res.data.message);
-                history.push('/');
+                history.push('/app');
             })
             .catch(err => {
                 setSuccess('');
