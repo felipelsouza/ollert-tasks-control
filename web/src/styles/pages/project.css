@@ -4,6 +4,14 @@
   margin-top: 4.4rem;
   width: 100vw;
   height: calc(100vh - 4.8rem);
+  overflow: auto;
+}
+
+.sub-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .project-wrapper {
@@ -12,6 +20,12 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
+}
+
+.project-description-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .project-description {
@@ -26,7 +40,7 @@
 
 .title-container {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -134,13 +148,12 @@
 
 .add-task-button,
 .delete-project-button {
-  position: fixed;
   top: 0;
   z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 4.8rem 4rem;
+  margin: 1rem 4rem;
   padding-left: 0.8rem;
   border-radius: 4rem;
   cursor: pointer;
@@ -184,4 +197,40 @@
 
 .delete-icon {
   background-color: #ec644b;
+}
+
+@media (max-width: 900px) {
+  .sub-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .tasks-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .tasks-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 90%;
+    margin: 1rem 1rem;
+    height: calc(100vh - 10.6rem);
+    background-color: #f5f5f5;
+    border-radius: 1.4rem;
+    padding: 0 0.8rem;
+    overflow-y: scroll;
+  }
+  .add-task-button, .delete-project-button {
+    text-indent: -9999px;
+    padding-left: 0px;
+  }
 }
