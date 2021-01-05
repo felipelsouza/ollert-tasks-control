@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
         references: { model: 'users', key: 'id' },
         onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT',
+        onDelete: 'CASCADE',
       },
       title: {
         type: Sequelize.STRING(100),

@@ -15,10 +15,13 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING(40),
+        isLowercase: true,
+        unique: true
       },
       password: {
-        type: Sequelize.STRING(20),
-        allowNull: false
+        type: Sequelize.STRING,
+        allowNull: false,
+        select: false
       },
       created_at: {
         type: Sequelize.DATE,
