@@ -149,32 +149,35 @@ function Project() {
                     project={project}
                     userId={userId}
                 />
+                <div className="sub-header">
+                    <button onClick={() => openModal(2)} className="add-task-button">
+                        Nova Tarefa &nbsp;
+                    <div className="add-icon">
+                            <MdAdd size={32} color="#FFFFFF" />
+                        </div>
+                    </button>
 
-                <div className="title-container">
-                    <span className="project-title">
-                        {project.title}
-                    </span>
-                    <button onClick={() => openModal(1)} className="edit-project-button">
-                        <MdEdit size={18} color="#3a3a3a" />
+                    <div className="title-container">
+                        <span className="project-title">
+                            {project.title}
+                        </span>
+                        <div className="project-description-container">
+                            <p className="project-description">
+                                {project.description}
+                            </p>
+                            <button onClick={() => openModal(1)} className="edit-project-button">
+                                <MdEdit size={18} color="#3a3a3a" />
+                            </button>
+                        </div>
+                    </div>
+
+                    <button onClick={() => setShowDeleteProjectDialog(true)} className="delete-project-button">
+                        Deletar Projeto &nbsp;
+                    <div className="delete-icon">
+                            <MdDelete size={32} color="#FFFFFF" />
+                        </div>
                     </button>
                 </div>
-                <p className="project-description">
-                    {project.description}
-                </p>
-
-                <button onClick={() => openModal(2)} className="add-task-button">
-                    Nova Tarefa &nbsp;
-                    <div className="add-icon">
-                        <MdAdd size={32} color="#FFFFFF" />
-                    </div>
-                </button>
-
-                <button onClick={() => setShowDeleteProjectDialog(true)} className="delete-project-button">
-                    Deletar Projeto &nbsp;
-                    <div className="delete-icon">
-                        <MdDelete size={32} color="#FFFFFF" />
-                    </div>
-                </button>
 
                 <div className="tasks-container">
                     <div className="tasks-section">
